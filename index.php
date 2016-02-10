@@ -9,6 +9,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Elwood</title>
+
+    <!-- Bootstrap 3.3.6 -->
+    <link rel="stylesheet" href="/bootstrap-3.3.6/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/bootstrap-3.3.6/dist/css/bootstrap-theme.min.css">
+    <script src="/bootstrap-3.3.6/dist/js/bootstrap.min.js"></script>
 </head>
 <body>
     <table style="border:2px solid #333;">
