@@ -1,71 +1,40 @@
 <?php
 
-class Registry {
+  namespace registry;
 
-    /**
-     * Get url
-     * @param  String $url [description]
-     * @return JSON      [description]
-     */
-    function get($url) {
-        $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, "$url");
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-        $output = curl_exec($ch);
-        curl_close($ch);
-        return $output;
+  function test(): bool
+    {
+      return true;
     }
 
-    /**
-     * [head description]
-     * @param  [type] $url [description]
-     * @return [type]      [description]
-     */
-    function head($url) {
-        $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, "$url");
-        curl_setopt($ch, CURLOPT_HEADER, true);
-        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'HEAD');
-        $output = curl_exec($ch);
-        curl_close($ch);
-        return $output;
+  function catalog(string $url)
+    {
+      return json_decode(\curl\get("$url/v2/_catalog"));
     }
 
-    /**
-     * [isAvailable description]
-     * @return boolean [description]
-     */
-    function isAvailable() {
-        return true;
-    }
-
-    /**
-     * [search description]
-     * @param  [type] $searchTerm [description]
-     * @return [type]             [description]
-     */
-    function search($searchTerm) {
+  function isAvailable(string $url): bool
+    {
 
     }
 
-    /**
-     * [getImage description]
-     * @param  [type] $imageId [description]
-     * @return [type]          [description]
-     */
-    function getImage($imageId) {
+  function search(string $searchTerm): string
+    {
 
     }
 
-    /**
-     * [getLabels description]
-     * @param  [type] $imageId [description]
-     * @return [type]          [description]
-     */
-    function getLabels($imageId) {
-
+  function getImage(string $url, string $imageName, string $imageTag)
+    {
+      return json_decode(\curl\get("$url/v2/$imageName/manifests/$imageTag"));
     }
 
-}
+  function getImageTags(string $url, string $imageName)
+    {
+      return json_decode(\curl\get("$url/v2/$imageName/tags/list"));
+    }
+
+  function getLabels(string $imageId): string
+    {
+
+    }
 
 // EOF
