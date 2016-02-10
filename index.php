@@ -1,8 +1,8 @@
 <?php
-    include_once('lib/registry.php');
-    include_once('lib/curl.php');
-    include_once('lib/db.php');
-    include_once('lib/image.php');
+    include_once('./lib/registry.php');
+    include_once('./lib/curl.php');
+    include_once('./lib/db.php');
+    include_once('./lib/image.php');
 ?>
 <!DOCTYPE html>
 <html lang="en-US">
